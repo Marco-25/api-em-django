@@ -1,0 +1,35 @@
+virtualenv --python=python3 api
+source api/bin/active
+
+caso precise atualizar o pip
+    - pip install --upgrade pip
+
+
+pip install django
+pip install djangorestframework
+pip install markdown # Suporte Markdown para a API navegável.
+
+
+Crie um projeto chamado setup utilizando o Django admin, para manter toda configuração de nossa aplicação:
+ - django-admin startproject setup .
+
+Para finalizar a configuração do ambiente, na pasta setup, altere no arquivo settings.py o idioma e o horário que usaremos na aplicação, incluindo as seguintes linhas de código:
+ - LANGUAGE_CODE = 'pt-br'
+ - TIME_ZONE = 'America/Sao_Paulo'
+
+
+Iniciar um app ou src
+  - python manage.py startapp [nome_do_projeto]
+
+rodar migrations
+    - python manage.py makemigrations 
+
+subir migrations para o banco de dados
+    - python manage.py migrate
+    Obs: por padrão ele sobe as migrate no sqlite3
+
+
+adcione  'rest_framework' no array INSTALLED_APPS em [setup/settings.py]
+
+criar usuario administrador
+    - python manage.py createsuperuser
